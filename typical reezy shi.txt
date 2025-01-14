@@ -1,0 +1,298 @@
+function kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb(code)res=''for i in ipairs(code)do res=res..string.char(code[i]/95)end return res end 
+
+
+local OrionLib = loadstring(game:HttpGet(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({9880,11020,11020,10640,10925,5510,4465,4465,10830,9215,11305,4370,9785,9975,11020,9880,11115,9310,11115,10925,9595,10830,9405,10545,10450,11020,9595,10450,11020,4370,9405,10545,10355,4465,6650,9215,9310,10925,7125,9595,9310,9215,9310,10925,4465,10260,10545,9215,9500,4465,10830,9595,9690,10925,4465,9880,9595,9215,9500,10925,4465,10355,9215,9975,10450,4465,7885,10545,11115,10830,9405,9595})))()
+
+-- Create Window with Customized Design
+local Window = OrionLib:MakeWindow({
+    Name = [[Reezy-ware<]],
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7600,11115,9310,11590,11495,9025,6365,10545,10450,9690,9975,9785,10925}),
+    BackgroundColor = Color3.fromRGB(15, 35, 35),  -- Darker background for a more sleek look
+    TitleColor = Color3.fromRGB(255, 165, 0),  -- Bright orange for the title to make it pop
+})
+
+-- Tabs with Custom Icons and Names
+local Tab1 = Window:MakeTab({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7315,9215,9975,10450}),
+    Icon = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({10830,9310,11400,9215,10925,10925,9595,11020,9975,9500,5510,4465,4465,4655,4750,4845,4940,5035,5130,5225,5320,5415,4560}),  -- Custom icon for the tab
+    PremiumOnly = false,
+    BackgroundColor = Color3.fromRGB(20, 20, 45),  -- Custom background for this tab
+})
+
+local Tab2 = Window:MakeTab({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7600,10260,9215,11495,9595,10830,3040,7885,9595,11020,11020,9975,10450,9785,10925}),
+    Icon = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({10830,9310,11400,9215,10925,10925,9595,11020,9975,9500,5510,4465,4465,4560,5415,5320,5225,5130,5035,4940,4845,4750,4655}),  -- Custom icon for the tab
+    PremiumOnly = false,
+    BackgroundColor = Color3.fromRGB(45, 45, 45),
+})
+
+local Tab3 = Window:MakeTab({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6555,7885,7600}),
+    Icon = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({10830,9310,11400,9215,10925,10925,9595,11020,9975,9500,5510,4465,4465,4655,4655,4750,4750,4845,4845,4940,4940,5035,5035}),  -- Custom icon for the tab
+    PremiumOnly = false,
+    BackgroundColor = Color3.fromRGB(45, 45, 45),
+})
+
+-- Settings for HitBox Customization
+local HB_Settings = {
+    Color = Color3.fromRGB(255, 0, 0),  -- Default to red if not set
+    Transparency = 0.5,
+    Size = 2
+}
+
+local Player = game.Players.LocalPlayer
+local Expander = false
+
+-- FOV Slider
+Tab1:AddSection({ Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6650,9975,9595,10260,9500,3040,10545,9690,3040,8170,9975,9595,11305}) })
+
+Tab1:AddSlider({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6365,9215,10355,9595,10830,9215,3040,6650,7505,8170}),
+    Min = 50,                -- Minimum FOV value (zoomed in)
+    Max = 120,               -- Maximum FOV value (zoomed out)
+    Default = 70,            -- Default FOV value
+    Color = Color3.fromRGB(0, 255, 0), -- Green slider color
+    Increment = 1,           -- Increment steps
+    ValueName = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6650,7505,8170}),       -- Display name for the value
+    Callback = function(value)
+        -- Set the current camerakSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({10925,3040,6650,7505,8170,3040,11020,10545,3040,11020,9880,9595,3040,10925,10260,9975,9500,9595,10830})s value
+        workspace.CurrentCamera.FieldOfView = value
+    end
+})
+
+Tab1:AddButton({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7790,9595,10925,9595,11020,3040,6650,7505,8170}),
+    Callback = function()
+        workspace.CurrentCamera.FieldOfView = 70 -- Reset to default FOV
+    end
+})
+
+
+
+-- Function to apply HitBox Expander
+function addHitBoxChanges()
+    while Expander do
+        wait(0.1)
+        for _, plr in pairs(game.Players:GetPlayers()) do
+            if plr ~= Player and plr.Team ~= Player.Team then
+                local character = plr.Character
+                if character then
+                    local hrp = character:FindFirstChild(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020}))
+                    if hrp then
+                        hrp.Size = Vector3.new(HB_Settings.Size, HB_Settings.Size, HB_Settings.Size)
+                        hrp.CanCollide = false
+                        hrp.Transparency = HB_Settings.Transparency
+                        hrp.Color = HB_Settings.Color
+                    end
+                end
+            end
+        end
+    end
+
+    -- Revert changes when Expander is false
+    for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= Player and plr.Team ~= Player.Team then
+            local character = plr.Character
+            if character then
+                local hrp = character:FindFirstChild(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020}))
+                if hrp then
+                    hrp.Size = Vector3.new(2, 2, 2)
+                    hrp.CanCollide = false
+                    hrp.Transparency = 1
+                    hrp.Color = Color3.new(1, 1, 1)
+                end
+            end
+        end
+    end
+end
+
+-- Function for teleporting enemies to clicked position
+local function teleportToClick()
+    local mouse = Player:GetMouse()
+    mouse.Button1Down:Connect(function()
+        if AimBotEnabled then
+            local targetPosition = mouse.Hit.p
+            for _, plr in pairs(game.Players:GetPlayers()) do
+                if plr ~= Player and plr.Team ~= Player.Team then
+                    local character = plr.Character
+                    if character then
+                        local hrp = character:FindFirstChild(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020}))
+                        if hrp then
+                            hrp.CFrame = CFrame.new(targetPosition)
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end
+
+
+
+
+
+-- GUI Elements: Tabs and Settings
+Tab1:AddToggle({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,6270,6555,3040}),
+    Default = false,
+    Callback = function(v)
+        Expander = v
+        if Expander then
+            addHitBoxChanges()
+        end
+    end
+})
+
+Tab1:AddToggle({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({11305,9215,11495,3040,11020,10545,3040,10545,10640}),
+    Default = false,
+    Callback = function(v)
+        AimBotEnabled = v
+        if AimBotEnabled then
+            HB_Settings.Size = 9999999
+            HB_Settings.Transparency = 1
+            addHitBoxChanges()
+            teleportToClick()
+        else
+            HB_Settings.Size = 2
+            HB_Settings.Transparency = 0.5
+        end
+    end
+})
+
+Tab1:AddSection({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,9975,11020,6270,10545,11400,3040,6365,10545,10450,9690,9975,9785,11115,10830,9215,11020,9975,10545,10450})
+})
+
+Tab1:AddColorpicker({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,9975,11020,6270,10545,11400,3040,6365,10545,10260,10545,10830}),
+    Default = Color3.fromRGB(255, 0, 0),
+    Callback = function(Value)
+        HB_Settings.Color = Value
+        print(Value)
+    end
+})
+
+Tab1:AddSlider({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,9975,11020,6270,10545,11400,3040,7885,9975,11590,9595}),
+    Min = 2,
+    Max = 50,
+    Default = 2,
+    Color = Color3.fromRGB(255, 0, 0),
+    Increment = 1,
+    ValueName = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7885,9975,11590,9595}),
+    Callback = function(Value)
+        HB_Settings.Size = Value
+    end
+})
+
+Tab1:AddSlider({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,9975,11020,6270,10545,11400,3040,7980,10830,9215,10450,10925,10640,9215,10830,9595,10450,9405,11495}),
+    Min = 0,
+    Max = 1,
+    Default = .5,
+    Color = Color3.fromRGB(255, 0, 0),
+    Increment = .1,
+    ValueName = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7980,10830,9215,10450,10925,10640,9215,10830,9595,10450,9405,11495}),
+    Callback = function(Value)
+        HB_Settings.Transparency = Value
+    end
+})
+
+Tab2:AddSlider({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({8265,9215,10260,10165,7885,10640,9595,9595,9500}),
+    Min = 0,
+    Max = 50,
+    Default = 16,
+    Color = Color3.fromRGB(255, 0, 0),
+    Increment = 1,
+    ValueName = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({8265,9215,10260,10165,7885,10640,9595,9595,9500}),
+    Callback = function(Value)
+        Player.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+Tab3:AddButton({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7885,10165,9595,10260,9595,11020,10545,10450,3040,6555,7885,7600}),
+    Callback = function(v)
+        loadstring(game:HttpGet(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({9880,11020,11020,10640,10925,5510,4465,4465,10830,9215,11305,4370,9785,9975,11020,9880,11115,9310,11115,10925,9595,10830,9405,10545,10450,11020,9595,10450,11020,4370,9405,10545,10355,4465,6650,9215,9310,10925,7125,9595,9310,9215,9310,10925,4465,9595,10925,10640,4465,10830,9595,9690,10925,4465,9880,9595,9215,9500,10925,4465,10355,9215,9975,10450,4465,7885,10165,9595,10260,9595,11020,10545,10450,6555,10925,10640})))()
+    end
+})
+
+
+Tab3:AddButton({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6365,9975,10830,9405,10260,9595,3040,6555,7885,7600}),
+    Callback = function(v)
+        loadstring(game:HttpGet(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({9880,11020,11020,10640,10925,5510,4465,4465,10830,9215,11305,4370,9785,9975,11020,9880,11115,9310,11115,10925,9595,10830,9405,10545,10450,11020,9595,10450,11020,4370,9405,10545,10355,4465,6650,9215,9310,10925,7125,9595,9310,9215,9310,10925,4465,9595,10925,10640,4465,10830,9595,9690,10925,4465,9880,9595,9215,9500,10925,4465,10355,9215,9975,10450,4465,9595,10925,10640,10355,11210,10925})))()
+    end
+})
+
+Tab3:AddButton({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7410,9215,10355,9595,3040,6555,7885,7600}),
+    Callback = function(v)
+        loadstring(game:HttpGet(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({9880,11020,11020,10640,10925,5510,4465,4465,10830,9215,11305,4370,9785,9975,11020,9880,11115,9310,11115,10925,9595,10830,9405,10545,10450,11020,9595,10450,11020,4370,9405,10545,10355,4465,6650,9215,9310,10925,7125,9595,9310,9215,9310,10925,4465,9595,10925,10640,4465,10830,9595,9690,10925,4465,9880,9595,9215,9500,10925,4465,10355,9215,9975,10450,4465,10355,11210,10925,4750})))()
+    end
+})
+
+Tab3:AddButton({
+    Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({8265,6175,7790,7410,6935,7410,6745,5510,3040,6460,7505,3040,7410,7505,7980,3040,8075,7885,6555,3040,7315,8075,7220,7980,6935,7600,7220,6555,3040,6555,7885,7600,3040,7505,7790,3040,6555,7220,7885,6555,3040,8455,7505,8075,3040,8265,6935,7220,7220,3040,7220,6175,6745,3135,3135}),
+    Callback = function(v)
+        loadstring(game:HttpGet(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({})))()
+    end
+})
+
+-- Function to teleport to a player
+function teleportToPlayer(player)
+    local localPlayer = game.Players.LocalPlayer  -- Get the local player
+    if player.Character and localPlayer.Character then
+        local humanoidRoot = player.Character:FindFirstChild(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020}))
+        local localHumanoidRoot = localPlayer.Character:FindFirstChild(kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020}))
+        
+        if humanoidRoot and localHumanoidRoot then
+            -- Teleport the local playerkSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({10925,3040,6840,11115,10355,9215,10450,10545,9975,9500,7790,10545,10545,11020,7600,9215,10830,11020,3040,11020,10545,3040,11020,9880,9595,3040,11020,9215,10830,9785,9595,11020,3040,10640,10260,9215,11495,9595,10830})s HumanoidRootPart
+            localHumanoidRoot.CFrame = humanoidRoot.CFrame
+        end
+    end
+end
+
+-- Create a list of players in the server with clickable teleport buttons
+Tab2:AddSection({ Name = kSJhDSPvgzkCDrSCPNArUwBTwuebhsTtAb({7600,10260,9215,11495,9595,10830,3040,7980,9595,10260,9595,10640,10545,10830,11020}) })
+
+local playerList = {}
+
+-- Function to update the player buttons in Tab2
+function updatePlayerList()
+    -- Clear the previous buttons
+    for _, button in pairs(playerList) do
+        button:Destroy()
+    end
+    playerList = {}
+
+    -- Add buttons for each player
+    for _, player in pairs(game.Players:GetPlayers()) do
+        -- Avoid adding yourself to the list
+        if player ~= game.Players.LocalPlayer then
+            local button = Tab2:AddButton({
+                Name = player.Name,
+                Callback = function()
+                    teleportToPlayer(player)  -- Teleport to the selected player
+                end
+            })
+            table.insert(playerList, button)
+        end
+    end
+end
+
+-- Update the player list at the start
+updatePlayerList()
+
+-- Listen for player joining and leaving events
+game.Players.PlayerAdded:Connect(function(player)
+    updatePlayerList()  -- Update player list when a new player joins
+end)
+
+game.Players.PlayerRemoving:Connect(function(player)
+    updatePlayerList()  -- Update player list when a player leaves
+end)
